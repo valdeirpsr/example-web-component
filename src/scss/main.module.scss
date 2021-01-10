@@ -1,0 +1,14 @@
+@import "reset";
+
+#content {
+    margin: 0 auto;
+    width: 70%;
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+@import "items";

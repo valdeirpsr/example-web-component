@@ -1,0 +1,8 @@
+/.cache/
+/dist/*
+/node_modules/
+/yarn.lock
+/imgs/
+/*.jpg
+dl.sh
+!/dist/index.html

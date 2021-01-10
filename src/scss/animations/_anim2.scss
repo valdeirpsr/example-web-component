@@ -1,0 +1,16 @@
+::slotted(span:global(.anim2)) {
+  @extend %default;
+  text-transform: uppercase;
+  transition: all 0.6s ease-out;
+  flex-basis: 0;
+}
+::slotted(span:global(.anim2:first-child)) {
+  transform: translateX(-100%);
+}
+::slotted(span:global(.anim2:last-child)) {
+  transform: translateX(150%);
+}
+figure:hover ::slotted(span:global(.anim2)) {
+  transform: translateX(0);
+  opacity: 1;
+}

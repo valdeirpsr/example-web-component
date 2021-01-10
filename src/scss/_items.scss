@@ -1,0 +1,170 @@
+$dimension-box: 300px;
+$border-margin-vertical: 60px;
+$border-thickness: 5px;
+$object-positions: none, bottom, center, left, right, top, revert;
+$object-fits: none, contain, cover, fill, scale-down, revert;
+
+@mixin borders($vertical: true) {
+    content: '';
+    background: white;
+    display: block;
+    position: absolute;
+    z-index: 11;
+
+    @if $vertical {
+        transition: height 0.35s ease-in-out;
+        height: 0px;
+        width: $border-thickness;
+    }
+    @else {
+        transition: width 0.35s ease-in-out;
+        height: $border-thickness;
+        width: 0px;
+    }
+}
+
+@import "animations";
+@import "effects";
+
+figure {
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  height: $dimension-box;
+  width: $dimension-box;
+
+  &::before {
+    @include borders();
+    left: 10px;
+    top: $border-margin-vertical;
+  }
+  &::after {
+    @include borders();
+    right: 10px;
+    bottom: $border-margin-vertical;
+  }
+
+  &:hover {
+    &::after, &::before {
+      height: 180px;
+    }
+
+    img:not(:global(#img-placeholder)) {
+      transform: scale(1.25) rotate(-15deg);
+      filter: blur(5px);
+      backdrop-filter: brightness(0.5);
+    }
+
+    figcaption {
+      opacity: 0.7;
+      background: rgba(0, 0, 0, 0.75);
+
+      &::before, &::after {
+        width: 280px;
+      }
+    }
+  }
+}
+
+img {
+  transform: scale(1);
+  transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+  filter: blur(0px);
+  backdrop-filter: brightness(0);
+  height: $dimension-box;
+  width: $dimension-box;
+
+  @each $position in $object-positions {
+    &:global(.__position-#{$position}) {
+        object-position: $position;
+    }
+  }
+
+  @each $fit in $object-fits {
+    &:global(.__fit-#{$fit}) {
+      object-fit: $fit;
+    }
+  }
+
+  &:global(#img-placeholder) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: opacity 0.7s ease-in-out;
+    opacity: 1;
+    z-index: 2;
+  }
+
+  &:global(#img-placeholder.fade-out) {
+    opacity: 0;
+  }
+}
+
+:global(#loading) {
+  left: 0;
+  height: 80px;
+  position: absolute;
+  transition: opacity 0.5s ease-out;
+  transform: translate(
+    calc(#{$dimension-box / 2} - 40px),
+    calc(#{$dimension-box / 2} - 40px)
+  );
+  opacity: 1;
+  top: 0;
+  width: 80px;
+  z-index: 3;
+
+  &:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+
+  &:global(.fade-out) {
+    opacity: 0;
+  }
+}
+
+figcaption {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+  flex-wrap: wrap;
+  left: 0;
+  justify-content: center;
+  height: $dimension-box;
+  padding: 50px 25px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  top: 0;
+  position: absolute;
+  width: $dimension-box;
+  z-index: 10;
+
+  &::before {
+    @include borders(false);
+    top: $border-margin-vertical;
+    right: 10px;
+  }
+  &::after {
+    @include borders(false);
+    left: 10px;
+    bottom: 60px;
+  }
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

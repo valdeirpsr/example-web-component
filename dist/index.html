@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="v-image.js"></script>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      #content {
+        align-items: center;
+        display: flex;
+        min-height: 100vh;
+        margin: 0 auto;
+        width: 100vw;
+        background: #ececec;
+      }
+      #content .container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <div class="container">
+        <div class="item">
+          <v-image
+            alt="Aba Reta - Kannario"
+            animation-first-word="anim1"
+            animation-second-word="anim1"
+            effect="effect-blend-1"
+            source="https://picsum.photos/id/93/2000/1334"
+            placeholder="https://picsum.photos/id/93/50"
+            fit="cover"
+            fit-position="top"
+          >
+            <span slot="first" class="anim2">Se meu traje te incomoda,</span>
+            <span slot="second" class="anim2">Lá no gueto eu 'tô na moda;</span>
+          </v-image>
+        </div>
+
+        <div class="item">
+          <v-image
+            alt="Aba Reta - Kannario"
+            animation-first-word="anim1"
+            animation-second-word="anim1"
+            effect="effect-blend-3"
+            source="https://picsum.photos/id/513/4373/3280"
+            placeholder="https://picsum.photos/id/513/50"
+            fit="cover"
+            fit-position="top"
+          >
+            <span slot="first" class="anim1">Se minhas gírias te ofendem,</span>
+            <span slot="second" class="anim1">Todos lá me compreendem.</span>
+          </v-image>
+        </div>
+
+        <div class="item">
+          <v-image
+            alt="Aba Reta - Kannario"
+            animation-first-word="anim1"
+            animation-second-word="anim1"
+            effect="effect-linear-3"
+            source="https://picsum.photos/id/93/2000/1334"
+            placeholder="https://picsum.photos/id/93/50"
+            fit="cover"
+            fit-position="top"
+          >
+            <span slot="first" class="anim1">O meu caráter anda comigo.</span>
+            <span slot="second" class="anim2"
+              >Quem vê cara, não vê coração</span
+            >
+          </v-image>
+        </div>
+
+        <div class="item">
+          <v-image
+            alt="Aba Reta - Kannario"
+            animation-first-word="anim1"
+            animation-second-word="anim1"
+            effect="effect-blend-2"
+            source="https://picsum.photos/id/1054/1733/1733"
+            placeholder="https://picsum.photos/id/1054/25"
+            fit="contain"
+            fit-position="top"
+          >
+            <span slot="first" class="anim2">O que é que aba reta</span>
+            <span slot="second" class="anim1">tem a ver com ser ladrão?</span>
+          </v-image>
+        </div>
+
+        <div class="item">
+          <v-image
+            alt="Aba Reta - Kannario"
+            animation-first-word="anim1"
+            animation-second-word="anim1"
+            effect="effect-blend-4"
+            source="https://picsum.photos/id/372/4871/3247"
+            placeholder="https://picsum.photos/id/372/50"
+            fit="cover"
+            fit-position="top"
+          >
+            <span slot="first" class="anim1">Só quero entender.</span>
+            <span slot="second" class="anim1">Alguém pode explicar?</span>
+          </v-image>
+        </div>
+
+        <div class="item">
+          <v-image
+            alt="Aba Reta - Kannario"
+            animation-first-word="anim1"
+            animation-second-word="anim1"
+            source="https://picsum.photos/id/136/4032/2272"
+            placeholder="https://picsum.photos/id/136/50"
+            fit="cover"
+            fit-position="top"
+          >
+            <span slot="first" class="anim2"
+              >Quando essa gente vai entender?</span
+            >
+            <span slot="second" class="anim2"
+              >Minha roupa não muda o meu jeito de ser!</span
+            >
+          </v-image>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+$font-color: #fff;
+$font-family: monospace, roboto, sans-serif;
+$font-size: 1.1rem;
+
+%default {
+  display: inline-flex;
+  color: $font-color;
+  font-family: $font-family;
+  font-size: $font-size;
+  text-transform: uppercase;
+  opacity: 1;
+}
+
+@import "animations/anim1";
+@import "animations/anim2";

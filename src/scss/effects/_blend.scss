@@ -1,0 +1,35 @@
+@import 'base';
+
+:global(.effect-blend-1) {
+    background: linear-gradient(0deg, #bbe4186b, #0a12ffc7);
+    mix-blend-mode: overlay;
+}
+
+:global(.effect-blend-2) {
+    background: linear-gradient(45deg, #524f0d, #ffe10cfa);
+    mix-blend-mode: multiply;
+}
+
+:global(.effect-blend-3) {
+    background: linear-gradient(45deg, #d847bf38, #2108f138);
+    mix-blend-mode: color-dodge;
+}
+
+:global(.effect-blend-4) {
+    background: linear-gradient(-180deg, #404040, #404040 50%, transparent, transparent 100%);
+    animation: blend4 4s;
+    mix-blend-mode: color-dodge;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blend4 {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
